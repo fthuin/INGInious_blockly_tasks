@@ -1,0 +1,50 @@
+accessible: true
+author: Florian Thuin
+context: ''
+environment: default
+evaluate: best
+groups: false
+limits:
+    output: '2'
+    time: '30'
+    memory: '100'
+name: 06. Maze
+network_grading: false
+order: 9
+problems:
+    maze:
+        options:
+            css: true
+            oneBasedIndex: true
+            maxBlocks: Infinity
+            sounds: true
+            scrollbars: true
+            media: /static/common/js/blockly/media/
+            visual: true
+            toolboxPosition: start
+            trashcan: true
+        language: python
+        type: blockly
+        files:
+        - maze.js
+        - interpreter.js
+        blocks_files:
+        - blocks.js
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml" id="workspaceBlocks"
+            style="display:none"></xml>
+        header: Aide le bonhomme à arriver sur la position indiquée sur la carte.
+        toolbox: |-
+            <xml id="toolbox" style="display: none;">
+                <block type="maze_moveForward"></block>
+                <block type="maze_turn"><field name="DIR">turnLeft</field></block>
+                <block type="maze_turn"><field name="DIR">turnRight</field></block>
+                <block type="maze_forever"></block><block type="maze_if">
+                <field name="DIR">isPathLeft</field></block>
+            </xml>
+        name: Maze introduction
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

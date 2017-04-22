@@ -1,0 +1,72 @@
+accessible: true
+author: Florian Thuin
+context: ''
+environment: default
+evaluate: best
+groups: false
+limits:
+    output: '2'
+    memory: '100'
+    time: '30'
+name: 01. Maze
+network_grading: false
+order: 4
+problems:
+    maze:
+        options:
+            sounds: true
+            grid:
+                spacing: 20
+                colour: '#ccc'
+                snap: true
+                length: 3
+            zoom:
+                controls: true
+                scaleSpeed: 1.2
+                startScale: 1.0
+                minScale: 0.3
+                maxScale: 3.0
+                wheel: false
+            css: true
+            trashcan: true
+            maxBlocks: Infinity
+            media: /static/common/js/blockly/media/
+            scrollbars: true
+            visual: true
+            toolboxPosition: start
+            oneBasedIndex: true
+        blocks_files:
+        - blocks.js
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="maze_moveForward"></block>
+              <block type="maze_turn">
+                <field name="DIR">turnLeft</field>
+              </block>
+              <block type="maze_turn">
+                <field name="DIR">turnRight</field>
+              </block>
+            </xml>
+        workspace: <xml xmlns="http://www.w3.org/1999/xhtml"></xml>
+        language: python
+        header: |-
+            .. container:: row
+
+                .. container:: col-xs-8 col-md-9 text-justify
+
+                    Empiler ensemble deux blocs d'instructions
+
+                        .. image:: 01_maze/bloc_avancer.png
+                            :height: 30px
+
+                    pour aider le personnage à atteindre le but.
+        type: blockly
+        name: Maze introduction
+        files:
+        - maze.js
+        - interpreter.js
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
