@@ -1,0 +1,75 @@
+accessible: true
+author: Florian Thuin
+context: ''
+environment: default
+evaluate: best
+groups: false
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: 01. Maze
+network_grading: false
+order: 0
+problems:
+    code:
+        options:
+            media: /static/common/js/blockly/media/
+            grid:
+                snap: true
+                spacing: 20
+                colour: '#ccc'
+                length: 3
+            zoom:
+                startScale: 1.0
+                scaleSpeed: 1.2
+                controls: true
+                maxScale: 3.0
+                minScale: 0.3
+                wheel: false
+            maxBlocks: Infinity
+            css: true
+            toolboxPosition: start
+            sounds: true
+            trashcan: true
+            visual: true
+            oneBasedIndex: true
+            scrollbars: true
+        files:
+        - maze.js
+        - interpreter.js
+        header: |
+            .. image:: 01_maze/maze/small_static_avatar.png
+                :height: 40px
+
+            **Aide-moi à récolter tout le nectar de chaque fleur.**
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml" id="workspaceBlocks"
+              style="display:none"></xml>
+        blocks_files:
+        - blocks.js
+        language: python
+        name: Boucles
+        type: blockly
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="maze_move">
+                <field name="DIR">moveForward</field>
+              </block>
+              <block type="maze_turn">
+                <field name="DIR">turnLeft</field>
+              </block>
+              <block type="maze_turn">
+                <field name="DIR">turnRight</field>
+              </block>
+              <block type="maze_nectar"></block>
+              <block type="controls_repeat">
+                <field name="TIMES">???</field>
+              </block>
+              <block type="maze_honey"></block>
+            </xml>
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

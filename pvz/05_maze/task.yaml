@@ -1,0 +1,65 @@
+accessible: true
+author: Florian Thuin
+context: ''
+environment: default
+evaluate: best
+groups: false
+limits:
+    time: '30'
+    output: '2'
+    memory: '100'
+name: 05. Maze
+network_grading: false
+order: 4
+problems:
+    code:
+        options:
+            grid:
+                snap: true
+                colour: '#ccc'
+                length: 3
+                spacing: 20
+            css: true
+            zoom:
+                scaleSpeed: 1.2
+                minScale: 0.3
+                maxScale: 3.0
+                startScale: 1.0
+                controls: true
+                wheel: false
+            visual: true
+            media: /static/common/js/blockly/media/
+            sounds: true
+            oneBasedIndex: true
+            trashcan: true
+            scrollbars: true
+            maxBlocks: 6
+            toolboxPosition: start
+        files:
+        - maze.js
+        - interpreter.js
+        blocks_files:
+        - blocks.js
+        type: blockly
+        header: |-
+            .. image:: 01_maze/maze/small_static_avatar.png
+                :height: 40px
+
+            **Peux-tu résoudre cette énigme en utilisant le moins de blocs possible ?**
+        language: python
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml" id="workspaceBlocks"
+            style="display:none"></xml>
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none;">
+                <block type="maze_moveForward"></block>
+              <block type="maze_turn"><field name="DIR">turnLeft</field></block>
+              <block type="maze_turn"><field name="DIR">turnRight</field></block>
+              <block type="controls_repeat"><title name="TIMES">???</title></block>
+            </xml>
+        name: Boucles
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

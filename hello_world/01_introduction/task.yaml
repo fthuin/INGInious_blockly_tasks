@@ -1,0 +1,43 @@
+accessible: true
+author: ''
+context: ''
+environment: default
+evaluate: best
+groups: false
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: Introduction
+network_grading: false
+problems:
+    code:
+        options:
+            media: ''
+            sounds: true
+            css: true
+            toolboxPosition: start
+            oneBasedIndex: true
+            maxBlocks: ''
+            scrollbars: true
+            trashcan: true
+        language: python
+        name: Hello World
+        type: blockly
+        header: Print Hello World!
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="text_print">
+                <value name="TEXT">
+                  <shadow type="text">
+                    <field name="TEXT">abc</field>
+                  </shadow>
+                </value>
+              </block>
+            </xml>
+        workspace: <xml xmlns="http://www.w3.org/1999/xhtml"></xml>
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

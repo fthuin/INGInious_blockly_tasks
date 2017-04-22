@@ -1,0 +1,72 @@
+accessible: true
+author: Florian Thuin
+context: ''
+environment: default
+evaluate: best
+groups: false
+limits:
+    time: '30'
+    output: '2'
+    memory: '100'
+name: 02. Maze
+network_grading: false
+order: 1
+problems:
+    code:
+        options:
+            grid:
+                snap: true
+                colour: '#ccc'
+                length: 3
+                spacing: 20
+            css: true
+            zoom:
+                scaleSpeed: 1.2
+                minScale: 0.3
+                maxScale: 3.0
+                startScale: 1.0
+                controls: true
+                wheel: false
+            visual: true
+            media: /static/common/js/blockly/media/
+            sounds: true
+            oneBasedIndex: true
+            trashcan: true
+            scrollbars: true
+            maxBlocks: Infinity
+            toolboxPosition: start
+        files:
+        - maze.js
+        - interpreter.js
+        blocks_files:
+        - blocks.js
+        type: blockly
+        header: |-
+            .. image:: 01_maze/maze/small_static_avatar.png
+                :height: 40px
+
+            **Les fonctions sont des blocs de code qui effectuent une tâche. Utilise la fonction « récolter 2x du nectar » pour recueillir tout le nectar de chaque fleur.**
+        language: python
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml" id="workspaceBlocks"
+              style="display:none"></xml>
+        toolbox: |-
+            <xml>
+                <block type="maze_move">
+                    <title name="DIR">moveForward</title>
+                </block>
+                <block type="maze_turn">
+                    <title name="DIR">turnLeft</title>
+                </block>
+                <block type="maze_turn">
+                    <title name="DIR">turnRight</title>
+                </block>
+                <block type="controls_repeat"><title name="TIMES">???</title></block>
+                <block type="maze_2nectar"/>
+            </xml>
+        name: Fonctions
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
