@@ -1,0 +1,23 @@
+#!/bin/bash
+
+exercices_ok=0
+nb_exercices=1
+
+parsetemplate -o student/spotted.py spotted.tpl.py
+output=$(run_student python student/spotted.py 2>&1)
+expected_output=$(printf "OK")
+if [[ "$output" == "$expected_output" ]]; then
+	feedback --feedback "Your answer is correct" --id spotted
+    exercices_ok=$(($exercices_ok + 1))
+else
+	output=$(echo "$output" | sed -e 's/^/\t/' | sed 's/%/%%/g')
+	output=$(printf "Wrong answer:\n\n::\n\n$output\n")
+	feedback --feedback "$output" --id spotted
+fi
+
+amount_done=$(($exercices_ok*100/$nb_exercices))
+if [[ $exercices_ok -eq $nb_exercices ]]; then
+	feedback --result success --feedback "You solved all the exercices" --grade  $amount_done
+else
+	feedback --result failed --feedback "You made an error, see below" --grade     $amount_done
+fi
