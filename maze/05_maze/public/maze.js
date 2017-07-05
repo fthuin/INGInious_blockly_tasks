@@ -476,6 +476,12 @@ Maze.schedule = function(startPos, endPos) {
         Maze.displayPegman(endPos[0], endPos[1],
             Maze.constrainDirection16(endPos[2]));
     }, window.stepSpeed * 3));
+
+    if (Maze.finish_.x == endPos[0] && Maze.finish_.y == endPos[1]) {
+        Maze.pidList.push(setTimeout(function() {
+            Maze.scheduleFinish(true);
+        }, Maze.stepSpeed * 5));
+    }
 };
 
 /**
@@ -566,7 +572,6 @@ Maze.scheduleFail = function(forward) {
  */
 Maze.scheduleFinish = function(sound) {
     var direction16 = Maze.constrainDirection16(Maze.pegmanD * 4);
-    Maze.displayPegman(Maze.pegmanX, Maze.pegmanY, 16);
     if (sound) {
         Blockly.getMainWorkspace().playAudio('win', 0.5);
     }
