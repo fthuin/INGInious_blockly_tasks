@@ -1,0 +1,50 @@
+accessible: true
+author: ''
+context: ''
+environment: default
+evaluate: best
+groups: false
+limits:
+    time: '30'
+    output: '2'
+    memory: '100'
+name: ''
+network_grading: false
+problems:
+    code:
+        options:
+            zoom:
+                startScale: 1.0
+                scaleSpeed: 1.2
+                maxScale: 3.0
+                minScale: 0.3
+                controls: true
+                wheel: false
+            trashcan: true
+            oneBasedIndex: true
+            scrollbars: true
+            grid:
+                spacing: 20
+                colour: '#ccc'
+                snap: true
+                length: 3
+            css: true
+            sounds: true
+            toolboxPosition: start
+            visual:
+                position: left
+            media: /static/common/js/blockly/media/
+            maxBlocks: Infinity
+        name: ''
+        header: ''
+        toolbox: <xml></xml>
+        language: python
+        workspace: <xml></xml>
+        type: blockly
+        files:
+        - app0.js
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
