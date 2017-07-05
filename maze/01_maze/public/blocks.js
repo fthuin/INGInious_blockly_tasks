@@ -74,7 +74,7 @@ Blockly.JavaScript['maze_moveForward'] = function(block) {
 };
 
 Blockly.Python['maze_moveForward'] = function(block) {
-  // Generate JavaScript for moving forward.
+  // Generate Python for moving forward.
   return 'moveForward()\n';
 };
 

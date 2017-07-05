@@ -20,7 +20,8 @@ problems:
             sounds: true
             scrollbars: true
             media: /static/common/js/blockly/media/
-            visual: true
+            visual:
+                position: left
             toolboxPosition: start
             trashcan: true
         language: python

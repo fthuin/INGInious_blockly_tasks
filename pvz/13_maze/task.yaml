@@ -27,7 +27,8 @@ problems:
                 startScale: 1.0
                 controls: true
                 wheel: false
-            visual: true
+            visual:
+                position: left
             media: /static/common/js/blockly/media/
             sounds: true
             oneBasedIndex: true

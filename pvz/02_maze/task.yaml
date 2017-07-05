@@ -42,7 +42,8 @@ problems:
             trashcan: true
             maxBlocks: 5
             css: true
-            visual: true
+            visual:
+                position: left
             toolboxPosition: start
             oneBasedIndex: true
         files:

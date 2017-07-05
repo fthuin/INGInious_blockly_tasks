@@ -53,7 +53,7 @@ Maze.SKIN = {
 /**
  * Milliseconds between each animation frame.
  */
-Maze.stepSpeed = 100;
+window.stepSpeed = 100;
 
 /**
  * The types of squares in the maze, which is represented
@@ -438,10 +438,9 @@ Maze.reset = function(first) {
         Maze.pegmanD = Maze.startDirection + 1;
         Maze.scheduleFinish(false);
         Maze.pidList.push(setTimeout(function() {
-            Maze.stepSpeed = 250;
             Maze.schedule([Maze.pegmanX, Maze.pegmanY, Maze.pegmanD * 4], [Maze.pegmanX, Maze.pegmanY, Maze.pegmanD * 4 - 4]);
             Maze.pegmanD++;
-        }, Maze.stepSpeed * 5));
+        }, window.stepSpeed * 5));
     } else {
         Maze.pegmanD = Maze.startDirection;
         Maze.displayPegman(Maze.pegmanX, Maze.pegmanY, Maze.pegmanD * 4);
@@ -566,16 +565,16 @@ Maze.schedule = function(startPos, endPos) {
         Maze.displayPegman(startPos[0] + deltas[0] * 2,
             startPos[1] + deltas[1] * 2,
             Maze.constrainDirection16(startPos[2] + deltas[2] * 2));
-    }, Maze.stepSpeed));
+    }, window.stepSpeed));
     Maze.pidList.push(setTimeout(function() {
         Maze.displayPegman(startPos[0] + deltas[0] * 3,
             startPos[1] + deltas[1] * 3,
             Maze.constrainDirection16(startPos[2] + deltas[2] * 3));
-    }, Maze.stepSpeed * 2));
+    }, window.stepSpeed * 2));
     Maze.pidList.push(setTimeout(function() {
         Maze.displayPegman(endPos[0], endPos[1],
             Maze.constrainDirection16(endPos[2]));
-    }, Maze.stepSpeed * 3));
+    }, window.stepSpeed * 3));
 };
 
 /**
@@ -624,18 +623,18 @@ Maze.scheduleFail = function(forward) {
             Maze.displayPegman(Maze.pegmanX + deltaX / 2,
                 Maze.pegmanY + deltaY / 2,
                 direction16);
-        }, Maze.stepSpeed));
+        }, window.stepSpeed));
 
 
         var pegmanIcon = document.getElementById('pegman');
 
         Maze.pidList.push(setTimeout(function() {
             pegmanIcon.setAttribute('visibility', 'hidden');
-        }, Maze.stepSpeed * 2));
+        }, window.stepSpeed * 2));
 
         Maze.pidList.push(setTimeout(function() {
             Blockly.getMainWorkspace().playAudio('failure');
-        }, Maze.stepSpeed));
+        }, window.stepSpeed));
 
     } else if (Maze.SKIN.crashType == Maze.CRASH_STOP) {
         BlocklyTaskInterpreter.alert('Vous avez heurté un mur !');
@@ -651,16 +650,16 @@ Maze.scheduleFail = function(forward) {
             Maze.displayPegman(Maze.pegmanX,
                 Maze.pegmanY,
                 direction16);
-        }, Maze.stepSpeed));
+        }, window.stepSpeed));
         Maze.pidList.push(setTimeout(function() {
             Maze.displayPegman(Maze.pegmanX + deltaX,
                 Maze.pegmanY + deltaY,
                 direction16);
             Blockly.getMainWorkspace().playAudio('fail', 0.5);
-        }, Maze.stepSpeed * 2));
+        }, window.stepSpeed * 2));
         Maze.pidList.push(setTimeout(function() {
             Maze.displayPegman(Maze.pegmanX, Maze.pegmanY, direction16);
-        }, Maze.stepSpeed * 3));
+        }, window.stepSpeed * 3));
 
     } else {
         // Add a small random delta away from the grid.
@@ -676,7 +675,7 @@ Maze.scheduleFail = function(forward) {
         }
         Maze.pidList.push(setTimeout(function() {
             Blockly.getMainWorkspace().playAudio('fail', 0.5);
-        }, Maze.stepSpeed * 2));
+        }, window.stepSpeed * 2));
         var setPosition = function(n) {
             return function() {
                 var direction16 = Maze.constrainDirection16(Maze.pegmanD * 4 +
@@ -691,7 +690,7 @@ Maze.scheduleFail = function(forward) {
         // 100 frames should get Pegman offscreen.
         for (var i = 1; i < 100; i++) {
             Maze.pidList.push(setTimeout(setPosition(i),
-                Maze.stepSpeed * i / 2));
+                window.stepSpeed * i / 2));
         }
     }
 };
@@ -706,16 +705,16 @@ Maze.scheduleFinish = function(sound) {
     if (sound) {
         Blockly.getMainWorkspace().playAudio('win', 0.5);
     }
-    Maze.stepSpeed = 250; // Slow down victory animation a bit.
+    window.stepSpeed = 250; // Slow down victory animation a bit.
     Maze.pidList.push(setTimeout(function() {
         Maze.displayPegman(Maze.pegmanX, Maze.pegmanY, 18);
-    }, Maze.stepSpeed));
+    }, window.stepSpeed));
     Maze.pidList.push(setTimeout(function() {
         Maze.displayPegman(Maze.pegmanX, Maze.pegmanY, 16);
-    }, Maze.stepSpeed * 2));
+    }, window.stepSpeed * 2));
     Maze.pidList.push(setTimeout(function() {
         Maze.displayPegman(Maze.pegmanX, Maze.pegmanY, direction16);
-    }, Maze.stepSpeed * 3));
+    }, window.stepSpeed * 3));
 };
 
 /**
@@ -779,7 +778,7 @@ Maze.scheduleLook = function(d) {
     var paths = lookIcon.getElementsByTagName('path');
     lookIcon.style.display = 'inline';
     for (var x = 0, path; path = paths[x]; x++) {
-        Maze.scheduleLookStep(path, Maze.stepSpeed * x);
+        Maze.scheduleLookStep(path, window.stepSpeed * x);
     }
 };
 
@@ -793,7 +792,7 @@ Maze.scheduleLookStep = function(path, delay) {
         path.style.display = 'inline';
         setTimeout(function() {
             path.style.display = 'none';
-        }, Maze.stepSpeed * 2);
+        }, window.stepSpeed * 2);
     }, delay));
 };
 

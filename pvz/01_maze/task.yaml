@@ -14,44 +14,22 @@ order: 0
 problems:
     code:
         options:
-            media: /static/common/js/blockly/media/
-            grid:
-                snap: true
-                spacing: 20
-                colour: '#ccc'
-                length: 3
-            zoom:
-                startScale: 1.0
-                scaleSpeed: 1.2
-                controls: true
-                maxScale: 3.0
-                minScale: 0.3
-                wheel: false
-            maxBlocks: '3'
-            css: true
-            toolboxPosition: start
-            sounds: true
-            trashcan: true
-            visual: true
             oneBasedIndex: true
+            media: /static/common/js/blockly/media/
+            sounds: true
+            visual:
+                position: left
             scrollbars: true
-        files:
-        - maze.js
-        - interpreter.js
+            css: true
+            trashcan: true
+            toolboxPosition: start
+            maxBlocks: '3'
         header: |-
             .. image:: 01_maze/maze/small_static_avatar.png
                 :height: 40px
 
             **Chère personne. Moi zombie. Devoir... atteindre... tournesol.**
-        workspace: |-
-            <xml xmlns="http://www.w3.org/1999/xhtml">
-              <block type="maze_moveForward"></block>
-            </xml>
-        blocks_files:
-        - blocks.js
         language: python
-        name: Exécution séquentielle
-        type: blockly
         toolbox: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
               <block type="maze_moveForward"></block>
@@ -62,6 +40,17 @@ problems:
                 <field name="DIR">turnRight</field>
               </block>
             </xml>
+        type: blockly
+        files:
+        - maze.js
+        - interpreter.js
+        blocks_files:
+        - blocks.js
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="maze_moveForward"></block>
+            </xml>
+        name: Exécution séquentielle
 stored_submissions: 0
 submission_limit:
     amount: -1

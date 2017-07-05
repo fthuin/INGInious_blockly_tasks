@@ -32,7 +32,8 @@ problems:
             toolboxPosition: start
             sounds: true
             trashcan: true
-            visual: true
+            visual:
+                position: left
             oneBasedIndex: true
             scrollbars: true
         files:
